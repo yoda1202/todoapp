@@ -13,8 +13,13 @@
     <tr>
       <td><%= todo.name %></td>
       <td><%= todo.description %></td>
-      <td><%= link_to"Edit", edit_todo_path(todo) %></td>
+      <td><%= link_to "Edit", edit_todo_path(todo) %></td>
       <td><%= link_to "Show", todo_path(todo) %></td>
+      <!--<td><%= link_to "Delete", todo_path(todo), method: :delete, data: {confirm: "Are you sure?"} %></td>-->
+      <td><%= button_to "Delete", todo_path(todo), { method: :delete, data: {turbo_confirm: "Are you sure?"} }%></td>
+      <!--<td><%= button_to "Delete", todo_path(todo), method: :delete, form: {data: {turbo_confirm: "Are you sure?", turbo_frame: '_top'}} %></td>-->
+      <!--<td><%= button_to "Delete", todo_path(todo), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %></td>-->
+
     </tr>
   <% end %>
 </table>
